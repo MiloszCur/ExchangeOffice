@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantor</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+
+</head>
+
+<body>
+    <div class="mainContainer">
+        <h1 class="mainContainer__title">Kantor Walut</h1>
+
+        <form class="data">
+
+            <fieldset class="data__given">
+                <legend class="data__givenTitle">Wprowadż Dane Waluty Przyjmowanej</legend>
+                <section class="givenCurrency">
+                    <h2 class="givenCurrency__title">Wybierz Walute:</h2>
+                    <ul>
+                        <li class="givenCurrency__option">
+                            <label for="euroGiven" class="givenCurrency__data">
+                                Euro <strong>€</strong> <input class="js-givenCurrency" type="radio"
+                                    name="currencyGiven" id="euroGiven">
+                            </label>
+                        </li>
+                        <li class="givenCurrency__option">
+                            <label for="dolarGiven" class="givenCurrency__data">
+                                Dolar <strong>$</strong> <input class="js-givenCurrency" type="radio"
+                                    name="currencyGiven" id="dolarGiven">
+                            </label>
+                        </li>
+                        <li class="givenCurrency__option">
+                            <label for="funtGiven" class="givenCurrency__data">
+                                Funt <strong>£</strong> <input class="js-givenCurrency" type="radio"
+                                    name="currencyGiven" id="funtGiven">
+                            </label>
+                        </li>
+                        <li class="givenCurrency__option">
+                            <label for="plnGiven" class="givenCurrency__data">
+                                PLN <strong>PLN</strong> <input class="js-givenCurrency" type="radio"
+                                    name="currencyGiven" id="plnGiven">
+                            </label>
+                        </li>
+                    </ul>
+                </section>
+                <section class="givenAmount">
+                    <h2 class="givenAmount__title">Ilość Gotówki</h2>
+                    <label class="givenAmount__value" for="numberGiven">
+                        Podaj kwotę : <input class="js-givenAmount" type="number" id="numberGiven" min="0" required>
+                    </label>
+                </section>
+            </fieldset>
+            <fieldset class="data__received">
+                <legend class="data__receivedTitle">Wprowadź Dane Waluty Otrzymywanej</legend>
+                <section class="receivedCurrency">
+                    <h2 class="receivedCurrency__title">Wybierz Walutę:</h2>
+                    <ul>
+                        <li class="receivedCurrency__option">
+                            <label for="euroReceived">
+                                Euro <strong class="euroSymbol">€</strong> <input class="js-receivedCurrency"
+                                    type="radio" name="currencyReceived" id="euroReceived">
+                            </label>
+                        </li>
+                        <li class="receivedCurrency__option">
+                            <label for="dolarReceived">
+                                Dolar <strong class="dolarSymbol">$</strong> <input class="js-receivedCurrency"
+                                    type="radio" name="currencyReceived" id="dolarReceived">
+                            </label>
+                        </li>
+                        <li class="receivedCurrency__option">
+                            <label for="funtReceived">
+                                Funt <strong class="funtSymbol">£</strong> <input class="js-receivedCurrency"
+                                    type="radio" name="currencyReceived" id="funtReceived">
+                            </label>
+                        </li>
+                        <li class="receivedCurrency__option">
+                            <label for="plnReceived">
+                                PLN <strong class="plnSymbol">PLN</strong> <input class="js-receivedCurrency"
+                                    type="radio" name="currencyReceived" id="plnReceived">
+                            </label>
+                        </li>
+                    </ul>
+                </section>
+            </fieldset>
+        </form>
+    </div>
+    <div class="resultContainer">
+        <p class="resultContainer__given">Wymieniając <span class="resultContainer__givenAmount"></span>
+            <span class="resultContainer__givenCurrency"></span>
+        </p>
+        <p class="resultContainer__received">Otrzymasz <span class="resultContainer__receivedAmount"></span>
+            <span class="resultContainer__receivedCurrency"></span>
+        </p>
+    </div>
+</body>
+
+</html>
