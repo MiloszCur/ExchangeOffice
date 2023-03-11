@@ -19,14 +19,14 @@
 
 <body>
     <div class="mainContainer">
-        <h1 class="mainContainer__title">Kantor Walut</h1>
+        <h1 class="mainContainer__title">Exchange Office</h1>
 
         <form class="data">
 
             <fieldset class="data__given">
-                <legend class="data__givenTitle">Wprowadż Dane Waluty Przyjmowanej</legend>
+                <legend class="data__givenTitle">Enter Data</legend>
                 <section class="givenCurrency">
-                    <h2 class="givenCurrency__title">Wybierz Walute:</h2>
+                    <h2 class="givenCurrency__title">Choose Currency:</h2>
                     <ul>
                         <li class="givenCurrency__option">
                             <label for="euroGiven" class="givenCurrency__data">
@@ -55,16 +55,17 @@
                     </ul>
                 </section>
                 <section class="givenAmount">
-                    <h2 class="givenAmount__title">Ilość Gotówki</h2>
+                    <h2 class="givenAmount__title">Amount of Cash</h2>
                     <label class="givenAmount__value" for="numberGiven">
-                        Podaj kwotę : <input class="js-givenAmount" type="number" id="numberGiven" min="0" required>
+                        Enter the Amount : <input class="js-givenAmount" type="number" id="numberGiven" min="0"
+                            required>
                     </label>
                 </section>
             </fieldset>
             <fieldset class="data__received">
-                <legend class="data__receivedTitle">Wprowadź Dane Waluty Otrzymywanej</legend>
+                <legend class="data__receivedTitle">Receive Data</legend>
                 <section class="receivedCurrency">
-                    <h2 class="receivedCurrency__title">Wybierz Walutę:</h2>
+                    <h2 class="receivedCurrency__title">Choose Currency:</h2>
                     <ul>
                         <li class="receivedCurrency__option">
                             <label for="euroReceived">
@@ -96,10 +97,10 @@
         </form>
     </div>
     <div class="resultContainer">
-        <p class="resultContainer__given">Wymieniając <span class="resultContainer__givenAmount"></span>
+        <p class="resultContainer__given">Exchanging <span class="resultContainer__givenAmount"></span>
             <span class="resultContainer__givenCurrency"></span>
         </p>
-        <p class="resultContainer__received">Otrzymasz <span class="resultContainer__receivedAmount"></span>
+        <p class="resultContainer__received">You will receive <span class="resultContainer__receivedAmount"></span>
             <span class="resultContainer__receivedCurrency"></span>
         </p>
     </div>
