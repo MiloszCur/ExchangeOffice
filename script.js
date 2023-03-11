@@ -1,13 +1,6 @@
 
-let givenCurrency = document.querySelectorAll(".js-givenCurrency");
 let givenAmount = document.querySelector(".js-givenAmount");
-let givenResultAmount = document.querySelector(".resultContainer__givenAmount");
-let givenResultCurrency = document.querySelector(".resultContainer__givenCurrency");
-
-let receivedCurrency = document.querySelectorAll(".js-receivedCurrency");
 let receivedResultAmount = document.querySelector(".resultContainer__receivedAmount");
-let receivedResultCurrency = document.querySelector(".resultContainer__receivedCurrency");
-
 let form = document.querySelector(".data");
 
 let euroSymbol = document.querySelector(".euroSymbol");
@@ -15,15 +8,17 @@ let dolarSymbol = document.querySelector(".dolarSymbol");
 let funtSymbol = document.querySelector(".funtSymbol");
 let plnSymbol = document.querySelector(".plnSymbol");
 
-let currencyGiven = "";
-let currencyReceived = "";
-let symbolGiven = "";
-let symbolReceived = "";
+
 let currencyValue = 0;
 let resultGiven = 0;
-let resultReceived = 0;
+let currencyGiven = "";
+let symbolGiven = "";
+let currencyReceived = "";
+let symbolReceived = "";
 
-form.addEventListener("input", () => {
+function selectedCurrency() {
+
+    var givenCurrency = document.querySelectorAll(".js-givenCurrency");
 
     if (givenCurrency[0].checked) {
         currencyGiven = "euro";
@@ -38,11 +33,18 @@ form.addEventListener("input", () => {
         currencyGiven = "pln";
         symbolGiven = plnSymbol;
     }
+};
 
+function checkingGivenAmount() {
     if (givenAmount.value < 0) {
-        alert("Ilość Gotówki nie może być ujemna!");
+        alert("Given amount of money cant be negative");
         givenAmount.value = 1;
     }
+};
+
+function wantedCurrency() {
+
+    var receivedCurrency = document.querySelectorAll(".js-receivedCurrency");
 
     if (receivedCurrency[0].checked) {
         currencyReceived = "euro";
@@ -57,6 +59,45 @@ form.addEventListener("input", () => {
         currencyReceived = "pln";
         symbolReceived = plnSymbol;
     }
+};
+
+function givenNumber() {
+
+    var resultGiven = 0;
+    var givenResultAmount = document.querySelector(".resultContainer__givenAmount");
+
+    resultGiven = givenAmount.value;
+    givenResultAmount.innerText = resultGiven;
+};
+
+function receivedNumber() {
+
+    var resultReceived = 0;
+
+    resultReceived = (currencyValue * givenAmount.value).toFixed(2);
+    receivedResultAmount.innerText = resultReceived;
+};
+
+function givenCurrencySign() {
+
+    var givenResultCurrency = document.querySelector(".resultContainer__givenCurrency");
+
+    givenResultCurrency.innerText = symbolGiven.textContent;
+};
+
+function receivedCurrencySign() {
+
+    var receivedResultCurrency = document.querySelector(".resultContainer__receivedCurrency");
+
+    receivedResultCurrency.innerText = symbolReceived.textContent;
+    receivedResultAmount.innerText = resultReceived;
+};
+
+form.addEventListener("input", () => {
+
+    selectedCurrency();
+    checkingGivenAmount();
+    wantedCurrency();
 
     switch (currencyGiven) {
         case "euro":
@@ -128,15 +169,8 @@ form.addEventListener("input", () => {
             break;
     }
 
-    resultGiven = givenAmount.value;
-    givenResultAmount.innerText = resultGiven;
-
-    givenResultCurrency.innerText = symbolGiven.textContent;
-    receivedResultAmount.innerText = resultReceived;
-
-    resultReceived = (currencyValue * givenAmount.value).toFixed(2);
-    receivedResultAmount.innerText = resultReceived;
-
-    receivedResultCurrency.innerText = symbolReceived.textContent;
-    receivedResultAmount.innerText = resultReceived;
+    givenNumber();
+    givenCurrencySign();
+    receivedNumber();
+    receivedCurrencySign();
 });
